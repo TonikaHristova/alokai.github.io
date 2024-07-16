@@ -1,0 +1,25 @@
+{
+  "name": "sap-alokai-automation",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier --write .",
+    "test:all": "npx playwright test tests --config=playwright.config.ts --project=chromium",
+    "test:ui-all": "npx playwright test tests/ui --config=playwright.config.ts --project=chromium",
+    "test:uimode": "npx playwright test tests --config=playwright.config.ts --project=Chromium --ui",
+    "test:api-all": "npx playwright test tests/api --project=chromium",
+    "test:qa": "ENV=qa npx playwright test --project=chromium",
+    "test:en": "LOCALE=en playwright test --project=chromium",
+    "test:localization": "npx playwright test tests/ui/localization.spec.ts --config=playwright.config.ts --project=chromium"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^20.12.11",
+    "dotenv": "^16.4.5",
+    "prettier": "3.2.5"
+  }
+}
