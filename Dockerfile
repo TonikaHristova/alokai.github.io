@@ -4,6 +4,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY . /app/
 
-RUN npm install --force
+RUN npm install   #--force
 RUN npx playwright install
-#RUN npm install playwright-core
+RUN npm install playwright-core
