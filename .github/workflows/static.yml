@@ -42,8 +42,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
       - name: GitHub Pages Overwriter
-        uses: rayluo/github-pages-overwriter@v1.3
-        with:
-         source-directory: /playwright-report/index.html
+        # uses: rayluo/github-pages-overwriter@v1.3
+        # with:
+        #  source-directory: /playwright-report/index.html
 
 
