@@ -6,3 +6,4 @@ COPY . /app/
 
 RUN npm install --force
 RUN npx playwright install
+RUN npx install playwright-core
