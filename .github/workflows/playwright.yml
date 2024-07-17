@@ -19,7 +19,9 @@ jobs:
       #  run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: |
-          docker-compose up --build
+          docker-compose up --build -d
+      - name: Wait for containers to finish
+        run: docker ps -q --filter ancestor="playwright-test" | xargs docker wait
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -27,7 +29,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
       - uses: actions/checkout@v4
-      - name: replace
+      - name: Replace the report file with the newly generated one
         run: yes | cp -rf playwright-report/index.html .
       - name: Commit files # commit the report
         run: |
