@@ -27,6 +27,7 @@ jobs:
           path: .
           retention-days: 30
   job2:
+    needs: job1
     runs-on: [ubuntu-latest]
     steps:
       - name: move to dir # Move the generated files into the root
