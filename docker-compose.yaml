@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: npm test:localization #npm run test:api-all #test:localization
+    command: npm run test:api-all #npm run test:api-all #test:localization
     volumes:
       #- ./playwright-report/:/app/playwright-report
       - .:/app/playwright-report
