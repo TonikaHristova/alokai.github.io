@@ -27,8 +27,8 @@ jobs:
           path: .
           retention-days: 30
       - uses: actions/checkout@v4
-      - name: copy
-        run: cp -rf index.html .
+      - name: replace
+        run: yes| cp -rf index.html .
       - name: Commit files # commit the report
         run: |
           git config --local user.email "hristovatonika@gmail.com"
