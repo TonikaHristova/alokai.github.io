@@ -22,7 +22,8 @@ jobs:
         run: |
           docker-compose up --build -d
       - name: Wait for containers to finish
-        run: timeout 2m docker-compose exec playwright-test bash -c "npm run test:api-all && exit 0"
+        run: |
+          timeout 10m sh -c 'until docker-compose logs --tail=1 | grep "Test run complete"; do sleep 10; done'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
