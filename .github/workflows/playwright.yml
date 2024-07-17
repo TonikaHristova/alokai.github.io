@@ -15,8 +15,8 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      #- name: Install Playwright Browsers
+      #  run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: docker-compose up --build
       - uses: actions/upload-artifact@v4
@@ -36,4 +36,5 @@ jobs:
           git add .
           git commit -m "Add report"
       - name: Push changes # push the output folder to your repo
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@main
+      #force: true
