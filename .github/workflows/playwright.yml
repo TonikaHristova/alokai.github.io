@@ -18,18 +18,18 @@ jobs:
       #- name: Install Playwright Browsers
       #  run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: docker-compose up --build &
-          docker wait $(docker ps -q) # Wait for the container to exit
+        run: |
+          docker-compose up --build &
+          docker wait $(docker ps -q)
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
-          #path: playwright-report/
           path: playwright-report/
           retention-days: 30
       - uses: actions/checkout@v4
       - name: replace
-        run: yes| cp -rf playwright-report/index.html .
+        run: yes | cp -rf playwright-report/index.html .
       - name: Commit files # commit the report
         run: |
           git config --local user.email "hristovatonika@gmail.com"
