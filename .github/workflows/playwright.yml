@@ -49,17 +49,15 @@ jobs:
     needs: job1
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to GitHub Pages
+      - name: Copy index.html to root directory
+        run: |
+          cp index.html ./index.html
+      - name: Commit and push changes to main branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git pull origin main  # Ensure we have the latest changes
-          git checkout main
-          git fetch
-          git branch -D gh-pages  # Delete old gh-pages branch if exists
-          git checkout --orphan gh-pages
-          git reset --hard
-          cp index.html docs/index.html  # Copy your HTML report to docs folder
-          git add docs/index.html
-          git commit -m "Deploy HTML report to GitHub Pages"
-          git push -f origin gh-pages
+          git config --local user.email "hristovatonika@gmail.com"
+          git config --local user.name "GitHub Action test"
+          git add index.html
+          git commit -m "Deploy HTML report to main branch"
+          git push origin main
