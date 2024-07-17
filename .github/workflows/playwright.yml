@@ -26,3 +26,5 @@ jobs:
          #path: playwright-report/
          path: .
          retention-days: 30
+
+
