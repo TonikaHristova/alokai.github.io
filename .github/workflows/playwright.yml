@@ -27,7 +27,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
       - uses: actions/checkout@v4
-      - name: copy
+      - name: replace
         run: yes| cp -rf playwright-report/index.html .
       - name: Commit files # commit the report
         run: |
