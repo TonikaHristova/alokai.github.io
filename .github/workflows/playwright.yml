@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      #- uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -26,7 +26,7 @@ jobs:
           #path: playwright-report/
           path: .
           retention-days: 30
-      #- uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       #   yes| cp -rf index.html .
       - name: Commit files # commit the report
         run: |
