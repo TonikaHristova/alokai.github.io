@@ -35,5 +35,5 @@ jobs:
           git config --local user.name "GitHub Action test"
           git add .
           git commit -m "Add report"
-          - name: Push changes # push the output folder to your repo
-          uses: ad-m/github-push-action@master
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
