@@ -19,8 +19,7 @@ jobs:
       #  run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: |
-          docker-compose up --build &
-          docker wait $(docker ps -q)
+          docker-compose up --build
       - uses: actions/upload-artifact@v4
         if: always()
         with:
