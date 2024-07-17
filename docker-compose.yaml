@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
     #command: npm run test:api-all #npm run test:api-all #test:localization
     command: >
-      bash -c "npm run test:api-all && tail -f /dev/null"
+      bash -c "npm run test:api-all && exit 0"
     volumes:
       #- ./playwright-report/:/app/playwright-report
       - .:/app/playwright-report

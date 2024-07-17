@@ -16,12 +16,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
       #- name: Install Playwright Browsers
+
       #  run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: |
           docker-compose up --build -d
       - name: Wait for containers to finish
-        run: docker ps -q --filter ancestor="playwright-test" | xargs docker wait
+        run: docker wait $(docker-compose ps -q playwright-test)
       - uses: actions/upload-artifact@v4
         if: always()
         with:
